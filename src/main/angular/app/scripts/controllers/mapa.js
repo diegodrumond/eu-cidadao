@@ -59,7 +59,7 @@ angular.module('c3aApp')
     }
 
     $scope.confirmar_adicionar = function(event) {
-      $scope.positions.push({lat:$scope.nova_posicao.lat,lng:$scope.nova_posicao.lng});
+      $scope.positions.push({lat:$scope.nova_posicao.lat,lng:$scope.nova_posicao.lng,tipo:$scope.nova_posicao.tipo});
       finalizar_adicionar();
     }
   })
