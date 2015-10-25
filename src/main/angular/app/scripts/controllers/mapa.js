@@ -4,6 +4,7 @@ angular.module('c3aApp')
   .controller('MapaCtrl', function($scope,$uibModal,$log,$http) {
 
 	  $scope.menu =  {name: 'menu', url: 'views/menu.html'};
+    $scope.positions = [{lat:10,lng:10}];
 
     var getLocalLocation = function(latitude, longitude) {
       var latlon = latitude + "," + longitude;
@@ -27,6 +28,13 @@ angular.module('c3aApp')
               $scope.nova_posicao.location=locationWrap;
             });
     };
+    
+    var finalizar_adicionar = function() {
+      $scope.nova_posicao.tipo=null;
+      $scope.nova_posicao.lat=null;
+      $scope.nova_posicao.lng=null;
+      $scope.nova_posicao.endereco=null;
+    }
 
     $scope.open = function () {
       // var modalInstance = 
@@ -39,7 +47,7 @@ angular.module('c3aApp')
     
     $scope.addMarker = function(event) {
       var ll = event.latLng;
-      if($scope.nova_posicao){
+      if($scope.nova_posicao && $scope.nova_posicao.tipo){
         $scope.nova_posicao.lat=ll.lat();
         $scope.nova_posicao.lng=ll.lng();
         getLocalLocation($scope.nova_posicao.lat,$scope.nova_posicao.lng);
@@ -47,8 +55,12 @@ angular.module('c3aApp')
     }
     
     $scope.cancelar_adicionar = function(event) {
-      $scope.nova_posicao=null;
-      hideInfoWindow();
+      finalizar_adicionar();
+    }
+
+    $scope.confirmar_adicionar = function(event) {
+      $scope.positions.push({lat:$scope.nova_posicao.lat,lng:$scope.nova_posicao.lng});
+      finalizar_adicionar();
     }
   })
   .controller('AdicionarCtrl', function ($scope, $uibModalInstance) {
@@ -58,7 +70,7 @@ angular.module('c3aApp')
     };
 
     $scope.preparar_adicionar = function(tipo){
-      $scope.$parent.nova_posicao = {tipo:tipo}
+      $scope.$parent.nova_posicao = {tipo:tipo};
       $uibModalInstance.dismiss('cancel');
     }
   });

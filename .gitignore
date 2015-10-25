@@ -1,6 +1,9 @@
 *.class
 target
 
+#cordova platforms
+platforms
+
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 

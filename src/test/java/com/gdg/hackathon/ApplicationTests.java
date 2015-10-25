@@ -6,12 +6,12 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.gdg.hackathon.eucidadao.application.EuCidadaoApplication;
+import com.gdg.hackathon.eucidadao.application.Application;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = EuCidadaoApplication.class)
+@SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration
-public class EuCidadaoApplicationTests {
+public class ApplicationTests {
 
 	@Test
 	public void contextLoads() {
