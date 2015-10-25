@@ -16,8 +16,8 @@
 		<h1>{{nova_posicao.endereco}}</h1>
 	</div>
 </div>
-<div ng-controller="MapaCtrl">
-  <map center="current-location" disable-default-u-i="true" zoom-control="true" zoom-control-options="{style:'SMALL'}" on-click="addMarker()">
+<div style="height: 100%" ng-controller="MapaCtrl">
+  <map id="gmaps" center="current-location" disable-default-u-i="true" zoom-control="true" zoom-control-options="{style:'SMALL'}" on-click="addMarker()">
     <custom-control id="home" position="TOP_LEFT" index="1" on-click="click()">
       <button type="button" class="btn btn-primary" title="Opções" ng-click="open(event, 'bar')">
         <i class="glyphicon glyphicon-bullhorn"></i>
