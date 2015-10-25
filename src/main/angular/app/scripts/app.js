@@ -5,7 +5,8 @@ angular.module('c3aApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ngMap'
+  'ngMap',
+  'ui.bootstrap'
 ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -28,6 +29,10 @@ angular.module('c3aApp', [
       .when('/cadastro', {
         templateUrl: 'views/cadastro.html',
         controller: 'CadastroCtrl'
+      })
+      .when('/mapa', {
+        templateUrl: 'views/mapa.html',
+        controller: 'MapaCtrl'
       })
       .otherwise({
         redirectTo: '/login'
