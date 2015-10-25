@@ -13,6 +13,7 @@ var CordovaInit = function() {
 	};
 
 	this.bindEvents = function() {
+		OAuth.initialize('WAzfw_B0x-O2V6-ywpwNr8s9nKs');
 		document.addEventListener('deviceready', onDeviceReady, false);
 	};
 
