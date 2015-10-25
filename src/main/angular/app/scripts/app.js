@@ -4,7 +4,9 @@ angular.module('c3aApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'ngMap',
+  'ui.bootstrap'
 ])
   .config(function ($routeProvider) {
     $routeProvider
