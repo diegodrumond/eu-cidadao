@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@RestController("/servicos")
+@RestController
 @RequestMapping("/servicos")
 public class ServicoController {
     @Autowired

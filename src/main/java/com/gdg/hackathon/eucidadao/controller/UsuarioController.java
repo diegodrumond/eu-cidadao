@@ -1,14 +1,17 @@
 package com.gdg.hackathon.eucidadao.controller;
 
+import com.gdg.hackathon.eucidadao.model.Solicitacao;
 import com.gdg.hackathon.eucidadao.model.Usuario;
 import com.gdg.hackathon.eucidadao.repository.UsuarioRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-@RestController("/usuarios")
+@RestController()
 @RequestMapping("/usuarios")
 public class UsuarioController {
     @Autowired
@@ -27,6 +30,16 @@ public class UsuarioController {
     @RequestMapping(value = "/one/{id}", method = RequestMethod.GET)
     public Usuario getOne(@PathVariable Long id) {
         return repository.findOne(id);
+    }
+    
+    @RequestMapping(value = "/oneByEmail", method = RequestMethod.GET)
+    public Usuario getOneByName(@RequestParam(value="email") String email) {
+        return repository.findByEmail(email);
+    }
+    
+    @RequestMapping(value="/one/{id}/solicitacoes", method = RequestMethod.GET)
+    public List<Solicitacao> getAllSolicitacoes(@PathVariable Long id) {
+        return repository.findOne(id).getSolicitacoes();
     }
 }
 

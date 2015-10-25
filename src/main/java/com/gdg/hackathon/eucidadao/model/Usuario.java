@@ -35,7 +35,6 @@ public class Usuario extends BaseEntity<Long>{
     
     @NotNull
     @Column (length = 200)
-    @Email
     private String email;
     
     @NotNull
