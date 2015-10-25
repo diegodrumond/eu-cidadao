@@ -18,6 +18,10 @@ angular.module('c3aApp', [
         templateUrl: 'views/cadastro.html',
         controller: 'CadastroCtrl'
       })
+      .when('/mapa', {
+        templateUrl: 'views/mapa.html',
+        controller: 'MapaCtrl'
+      })
       .otherwise({
         redirectTo: '/login'
       });
