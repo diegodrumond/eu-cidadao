@@ -6,7 +6,8 @@ angular.module('c3aApp', [
   'ngSanitize',
   'ngRoute',
   'ngMap',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'restangular'
 ])
   .config(function ($routeProvider) {
     OAuth.initialize('WAzfw_B0x-O2V6-ywpwNr8s9nKs');
