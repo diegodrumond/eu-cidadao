@@ -3,7 +3,7 @@
 angular.module('c3aApp')
   .controller('MapaCtrl', function($scope,$uibModal) {
 
-	$scope.menu =  {name: 'menu', url: 'views/menu.html'};    
+    $scope.menu =  {name: 'menu', url: 'views/menu.html'};
 
     $scope.open = function () {
       // var modalInstance = 
