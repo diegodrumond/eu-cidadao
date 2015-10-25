@@ -4,7 +4,14 @@ angular.module('c3aApp')
   .controller('MapaCtrl', function($scope,$uibModal,$log,$http) {
 
 	  $scope.menu =  {name: 'menu', url: 'views/menu.html'};
-    $scope.positions = [{lat:10,lng:10}];
+    $scope.positions = [
+      //Exemplos
+      {lat: -19.934744372093167, lng: -43.9418363571167, tipo: "poda_de_arvore", $$hashKey: "object:12"}
+      ,{lat: -19.936237090198723, lng: -43.9314079284668, tipo: "iluminacao", $$hashKey: "object:28"}
+      ,{lat: -19.92945922975802, lng: -43.93054962158203, tipo: "animal_morto", $$hashKey: "object:34"}
+      ,{lat: -19.928773358633407, lng: -43.941407203674316, tipo: "sinalizacao", $$hashKey: "object:40"}
+      ,{lat: -19.930427513336618, lng: -43.93758773803711, tipo: "sinalizacao"}
+    ];
 
     var getLocalLocation = function(latitude, longitude) {
       var latlon = latitude + "," + longitude;
