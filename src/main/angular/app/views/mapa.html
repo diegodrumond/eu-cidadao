@@ -18,23 +18,24 @@
 </div>
 <div ng-controller="MapaCtrl">
   <map center="current-location" disable-default-u-i="true" zoom-control="true" zoom-control-options="{style:'SMALL'}" on-click="addMarker()">
-    <custom-control id="home" position="TOP_LEFT" index="1" on-click="click()">
+
+    <!-- Adicionar novo ponto -->
+    <custom-control id="home" position="TOP_LEFT" index="1">
       <button type="button" class="btn btn-primary" title="Opções" ng-click="open(event, 'bar')">
         <i class="glyphicon glyphicon-bullhorn"></i>
       </button>
-      <marker id="novo_ponto_marker" position="{{nova_posicao.lat}}, {{nova_posicao.lng}}" on-click="showInfoWindow(event, 'novo_ponto_info')" ng-if="nova_posicao.lat"></marker>
     </custom-control>
 
-    <info-window id="novo_ponto_info" visible-on-marker="novo_ponto_marker" ng-if="nova_posicao.lat">
+    <marker id="novo_ponto_marker" position="{{nova_posicao.lat}}, {{nova_posicao.lng}}" on-click="showInfoWindow(event, 'novo_ponto_info')" ng-if="nova_posicao.lat"></marker>
+    <marker ng-repeat="pos in positions" position="{{pos.lat}}, {{pos.lng}}"></marker>
+
+    <info-window id="novo_ponto_info">
       <div ng-non-bindable="">
-        <div id="siteNotice"></div>
-        <h1 id="firstHeading" class="firstHeading">Uluru</h1>
         <div id="bodyContent">
-          Endereço: {{nova_posicao.endereco}}
-          <button type="button" class="btn btn-primary" title="Poda de árvore" ng-click="cancelar_adicionar()">
+          <button type="button" class="btn btn-danger" ng-click="cancelar_adicionar()">
             <i class="glyphicon glyphicon-remove"></i>
           </button>
-          <button type="button" class="btn btn-primary" title="Poda de árvore" ng-click="adicionar()">
+          <button type="button" class="btn btn-success" ng-click="confirmar_adicionar()">
             <i class="glyphicon glyphicon-ok"></i>
           </button>
         </div>
